@@ -13,13 +13,13 @@ async def create_cat(body: PetModel, db: Session):
 
 
 async def get_cats(limit: int, offset: int, owner_id: int, is_vaccinated: bool, db: Session):
-    owners = db.query(Cat)
+    cats = db.query(Cat)
     if owner_id:
-        owners = owners.filter(Cat.owner_id == owner_id)
+        cats = cats.filter(Cat.owner_id == owner_id)
     if is_vaccinated is not None:
-        owners = owners.filter(Cat.vaccinated == is_vaccinated)
-    owners = owners.limit(limit).offset(offset).all()
-    return owners
+        cats = cats.filter(Cat.vaccinated == is_vaccinated)
+    cats = cats.limit(limit).offset(offset).all()
+    return cats
 
 
 async def get_cat(cat_id: int, db: Session):

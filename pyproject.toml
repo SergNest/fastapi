@@ -23,7 +23,11 @@ pydantic-settings = "^2.0.3"
 python-dotenv = "^1.0.0"
 fastapi-limiter = "^0.1.5"
 cloudinary = "^1.36.0"
+pytest = "^7.4.3"
 
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^7.2.6"
 
 [build-system]
 requires = ["poetry-core"]
